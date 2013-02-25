@@ -22,35 +22,29 @@ cd vt-cmsstructure/
 git checkout module
 </pre>
 
+## USAGE
 edit template:  widget/header/categorylist.tpl
 somewhere at lines 31-40 you will find:
-<pre>
-
-            [{if $iCatCnt <= $oView->getTopNavigationCatCnt()}]
-                <li><a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a>
-                    [{* ##################################################################  cms subpages *}]
-                    [{if $oTopCont->hasSubpages()}][{include file="cmssubpages.tpl" cat=$oTopCont iTotalNavigationLevels=4 }][{/if}]
-                    [{* ##################################################################  cms subpages *}]
-                </li>
-            [{else}]
-                [{capture append="moreLinks"}]
+<pre>[{if $iCatCnt <= $oView->getTopNavigationCatCnt()}]
+            <li><a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a></li>
+[{else}]
+            [{capture append="moreLinks"}]
                     <li><a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a></li>
-                [{/capture}]
-            [{/if}]
-</pre>
+            [{/capture}]
+[{/if}]</pre>
 insert this code between </a> and </li> on line 32:
 <pre>[{if $oTopCont->hasSubpages()}][{include file="cmssubpages.tpl" cat=$oTopCont iTotalNavigationLevels=4 }][{/if}]</pre>
 so you will get this:
 <pre>
-            [{if $iCatCnt <= $oView->getTopNavigationCatCnt()}]
-                <li><a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a>
-                    [{if $oTopCont->hasSubpages()}][{include file="cmssubpages.tpl" cat=$oTopCont iTotalNavigationLevels=4 }][{/if}]
-                </li>
-            [{else}]
-                [{capture append="moreLinks"}]
-                    <li><a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a></li>
-                [{/capture}]
-            [{/if}]
+[{if $iCatCnt <= $oView->getTopNavigationCatCnt()}]
+<li><a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a>
+[{if $oTopCont->hasSubpages()}][{include file="cmssubpages.tpl" cat=$oTopCont iTotalNavigationLevels=4 }][{/if}]
+</li>
+[{else}]
+[{capture append="moreLinks"}]
+<li><a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a></li>
+[{/capture}]
+[{/if}]
 </pre>
 Look at the paramater "iTotalNavigationLevels=4", it sets the amount of subcategory navigation levels, in this case "4" means, that there will be 5 (!) sub-levels:
 ![navigation levels](https://raw.github.com/vanilla-thunder/vt-cmsstructure/screenshots/screenshot3.jpg)
