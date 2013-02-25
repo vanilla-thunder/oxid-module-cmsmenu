@@ -23,7 +23,7 @@ git checkout module
 </pre>
 
 ## USAGE
-edit template:  widget/header/categorylist.tpl
+edit template:  **widget/header/categorylist.tpl**
 somewhere at lines 31-40 you will find:
 ```php
 [{if $iCatCnt <= $oView->getTopNavigationCatCnt()}]
@@ -50,8 +50,10 @@ so you will get this:
    [{/capture}]
 [{/if}]
 ```
-Look at the paramater "iTotalNavigationLevels=4", it sets the amount of subcategory navigation levels, in this case "4" means, that there will be 5 (!) sub-levels:
+Look at the paramater **iTotalNavigationLevels=4**, it sets the amount of subcategory navigation levels, in this case **4** means, that there will be **5** (!) sub-levels:
 ![navigation levels](https://raw.github.com/vanilla-thunder/vt-cmsstructure/screenshots/screenshot3.jpg)
+
+
 
 
 ##LICENSE AGREEMEN
