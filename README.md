@@ -1,4 +1,5 @@
 # vt CMS Structure for OXID eSales 4.7
+## actual version 1.0 from february 26th
 * provides the cms pages a simple category-like structure with some main and subpages 
 ![simple category-like structure](https://raw.github.com/vanilla-thunder/vt-cmsstructure/screenshots/screenshot1.jpg)
 
