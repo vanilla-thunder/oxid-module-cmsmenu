@@ -8,7 +8,8 @@ class content_vtcms extends content_vtcms_parent {
 		$aPaths = array();
 		$aPath = array();
 
-		if ($oContent->oxcontents__oxparentloadid->value) {
+		if ($oContent->oxcontents__oxparentloadid->value)
+        {
 			$oParent = oxNew("oxContent");
 			$oParent->loadByIdent($oContent->oxcontents__oxparentloadid->value);
 
@@ -23,5 +24,30 @@ class content_vtcms extends content_vtcms_parent {
 
 		return $aPaths;
 	}
+
+    public function getRootContent()
+    {
+        $cms = oxNew("oxcontent");
+        if( !$cms->load($this->getRootContentId()) )
+            return false;
+
+        return $cms;
+    }
+
+    public function getRootContentId()
+    {
+        /** @var oxContent $act */
+        $act = $this->getContent();
+        $sParent = $act->oxcontents__oxparentloadid->value;
+
+        while($sParent)
+        {
+            $act = oxNew("oxcontent");
+            $act->loadByIdent($sParent);
+            $sParent = $act->oxcontents__oxparentloadid->value;
+        }
+
+        return $act->getId();
+    }
 
 }

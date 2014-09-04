@@ -1,5 +1,5 @@
 # vt CMS Structure for OXID eSales 4.7
-## actual version 1.0 from february 26th
+## actual version 1.1 from 5th september 2014
 * provides the cms pages a simple category-like structure with some main and subpages 
 ![simple category-like structure](https://raw.github.com/vanilla-thunder/vt-cmsstructure/screenshots/screenshot1.jpg)
 
@@ -17,13 +17,10 @@ copy the content of the "copy_this" folder into the shop root directory
 navigate into the modules directory
 clone remote git repo and switch to the "module" branch.  
 this commands works for debian and centos:
-<pre>
-git clone git://github.com/vanilla-thunder/vt-cmsstructure.git
-cd vt-cmsstructure/
-git checkout module
-</pre>
+<pre>$ git clone -b module git://github.com/vanilla-thunder/vt-cmsstructure.git</pre>
 
 ## USAGE
+### top categories
 edit template:  **widget/header/categorylist.tpl**
 somewhere at lines 31-40 you will find:
 ```php
@@ -54,6 +51,9 @@ so you will get this:
 Look at the paramater **iTotalNavigationLevels=4**, it sets the amount of subcategory navigation levels, in this case **4** means, that there will be **5** (!) sub-levels:
 ![navigation levels](https://raw.github.com/vanilla-thunder/vt-cmsstructure/screenshots/screenshot3.jpg)
 
+### sidebar tree
+have a loot at the included file demo_template.tpl  
+it contains some code to create tree navigation like categories tree.
 
 
 
@@ -67,5 +67,3 @@ either version 3 of the License, or (at your option) any later version.
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
 without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with this program; if not, see <http://www.gnu.org/licenses/>
-
-<img src="https://ma-be.info/piwik/piwik.php?idsite=2&rec=1&action_name=vt-cmsstructure" style="border:0" alt="" />
