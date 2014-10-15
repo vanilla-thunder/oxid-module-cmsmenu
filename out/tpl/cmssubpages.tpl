@@ -5,7 +5,7 @@
         <li>
             <a href="[{$subpage->getLink()}]">[{$subpage->oxcontents__oxtitle->value}]</a>
             [{if $subpage->hasSubpages() && $iCurrentNavigationLevel < $iTotalNavigationLevels }]
-                [{include file="cmssubpages.tpl" cat=$subpage iCurrentNavigationLevel=$iCurrentNavigationLevel+1 iTotalNavigationLevels=$iTotalNavigationLevels }]
+                [{include file="cmssubpages.tpl" oCont=$subpage iCurrentNavigationLevel=$iCurrentNavigationLevel+1 iTotalNavigationLevels=$iTotalNavigationLevels }]
             [{/if}]
         </li>
     [{/foreach}]
