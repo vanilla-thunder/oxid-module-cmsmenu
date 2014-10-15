@@ -1,5 +1,5 @@
 # vt CMS Structure for OXID eSales 4.7+
-## actual version 1.2 from 5th september 2014
+## actual version 1.2 from november 15th, 2014
 * provides the cms pages a simple category-like structure with some main and subpages 
 ![simple category-like structure](https://raw.github.com/vanilla-thunder/vt-cmsstructure/screenshots/screenshot1.jpg)
 
@@ -40,7 +40,7 @@ If you want to customize it, change this file: modules/vt-cmsstructure/out/block
 
 
 ##LICENSE AGREEMEN
-Copyright (C) 2012-2013  Marat Bedoev
+Copyright (C) 2012-2014  Marat Bedoev
 
 This program is free software;
 you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation;
