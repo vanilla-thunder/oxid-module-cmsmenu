@@ -1,11 +1,13 @@
 <?php
 
-class oxcontent_vtcms extends oxcontent_vtcms_parent {
+class oxcontent_vtcms extends oxcontent_vtcms_parent
+{
 
 	protected $_blHasSubpages = null;
 	protected $_aSubpages = array();
 	
-	public function hasSubpages() {
+	public function hasSubpages()
+	{
 		if($this->_blHasSubpages === null) {
 			$oDb = oxDb::getDb();
 			$sViewName  = $this->getViewName();
@@ -16,8 +18,10 @@ class oxcontent_vtcms extends oxcontent_vtcms_parent {
 		}
 	}
 	
-	public function getSubpages() {
-		if(sizeof($this->_aSubpages) == 0) {
+	public function getSubpages()
+	{
+		if(sizeof($this->_aSubpages) == 0)
+		{
 			$aList = oxNew("oxContentlist");
 			$aList->loadSubpages($this->oxcontents__oxloadid->value);
 			$this->_aSubpages = $aList;

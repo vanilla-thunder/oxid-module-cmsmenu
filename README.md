@@ -1,5 +1,5 @@
-# vt CMS Structure for OXID eSales 4.7
-## actual version 1.1 from 5th september 2014
+# vt CMS Structure for OXID eSales 4.7+
+## actual version 1.2 from 5th september 2014
 * provides the cms pages a simple category-like structure with some main and subpages 
 ![simple category-like structure](https://raw.github.com/vanilla-thunder/vt-cmsstructure/screenshots/screenshot1.jpg)
 
@@ -21,40 +21,22 @@ this commands works for debian and centos:
 
 ## USAGE
 ### top categories
-edit template:  **widget/header/categorylist.tpl**
-somewhere at lines 31-40 you will find:
+for template:  **widget/header/categorylist.tpl**
+pick the categorylist.tpl for your shop version from vt-cmsstructure folder.
+if oyu have custom template, the only new code is:
 ```php
-[{if $iCatCnt <= $oView->getTopNavigationCatCnt()}]
-    <li><a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a></li>
-[{else}]
-   [{capture append="moreLinks"}]
-      <li><a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a></li>
-   [{/capture}]
-[{/if}]
+   [{* vt-cmsstructure --- start *}]
+      [{include file="cmssubpages.tpl" oCont=$oTopCont iTotalNavigationLevels=2}]
+   [{* vt-cmsstructure --- end *}]
 ```
 
 
-insert this code between </a> and </li> on line 32:
-<pre>[{if $oTopCont->hasSubpages()}][{include file="cmssubpages.tpl" cat=$oTopCont iTotalNavigationLevels=4 }][{/if}]</pre>
-so you will get this:
-```php
-[{if $iCatCnt <= $oView->getTopNavigationCatCnt()}]
-   <li><a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a>
-      [{if $oTopCont->hasSubpages()}][{include file="cmssubpages.tpl" cat=$oTopCont iTotalNavigationLevels=4 }][{/if}]
-   </li>
-[{else}]
-   [{capture append="moreLinks"}]
-      <li><a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a></li>
-   [{/capture}]
-[{/if}]
-```
-Look at the paramater **iTotalNavigationLevels=4**, it sets the amount of subcategory navigation levels, in this case **4** means, that there will be **5** (!) sub-levels:
+Look at the paramater **iTotalNavigationLevels=2**, it sets the amount of navigation levels, in this case **2** means, that there will be **3** (!) sub-levels:
 ![navigation levels](https://raw.github.com/vanilla-thunder/vt-cmsstructure/screenshots/screenshot3.jpg)
 
 ### sidebar tree
-have a loot at the included file demo_template.tpl  
-it contains some code to create tree navigation like categories tree.
-
+sidebar naviation will be included over a template block.
+If you want to customize it, change this file: modules/vt-cmsstructure/out/blocks/sidebar_categories.tpl
 
 
 ##LICENSE AGREEMEN
