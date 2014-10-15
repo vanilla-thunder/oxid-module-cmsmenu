@@ -1,8 +1,10 @@
 <?php
 
-class content_vtcms extends content_vtcms_parent {
+class content_vtcms extends content_vtcms_parent
+{
 
-	public function getBreadCrumb() {
+	public function getBreadCrumb()
+	{
 		$oContent = $this->getContent();
 
 		$aPaths = array();

@@ -1,7 +1,7 @@
 <?php
 /**
  * vt CMS Structure
- * Copyright (C) 2012-2013  Marat Bedoev
+ * Copyright (C) 2012-2014  Marat Bedoev
  *
  * This program is free software;
  * you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation;
@@ -15,14 +15,29 @@ class vtcms_cfg extends oxConfig
 {
 
     public static function setupCmsStructure() {
-        $sCheck = "SELECT 1 FROM oxcontents WHERE OXSORT = 9999 LIMIT 1";
+        
         $sQuery = "ALTER TABLE oxcontents ADD OXPARENTLOADID CHAR( 32 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '', ADD OXSORT INT( 11 ) NOT NULL DEFAULT '9999'";
 
         $oDb = oxDb::getDb();
-        $oRs = $oDb->select($sCheck);
+        $oRs = $oDb->metaColumnNames( "oxcontents" );
+        
+        $update = false;
+        
+        if ( !array_key_exists( "oxparentloadid", $oRs ) && !array_key_exists( "OXPARENTLOADID", $oRs ) )
+        {
+            $oDb->execute( "ALTER TABLE oxcontents ADD OXPARENTLOADID CHAR( 32 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '' COMMENT 'vt-cmsstructure - parent cms page ident'" );
+            $update = true;
+        }
+        
+        if ( !array_key_exists( "oxsort", $oRs ) && !array_key_exists( "OXSORT", $oRs ) )
+        {
+            $oDb->execute( "ALTER TABLE oxcontents ADD OXSORT INT( 11 ) NOT NULL DEFAULT '9999' COMMENT 'vt-cmsstructure - sorting order'" );
+            $update = true;
+        }
 
-        if ( $oRs == false || $oRs->recordCount() == 0 ) {
-            $oDb->execute($sQuery);
+        // update views
+        if( $update )
+        {
             $oMetaData = oxNew('oxDbMetaDataHandler');
             $oMetaData->updateViews();
         }

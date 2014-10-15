@@ -1,8 +1,7 @@
-[{if $iCurrentNavigationLevel == null }]
-[{assign var="iCurrentNavigationLevel" value=0}]
-[{/if}]
+[{if $oCont && $oCont->hasSubpages()}]
+[{if $iCurrentNavigationLevel == null }][{assign var="iCurrentNavigationLevel" value=0}][{/if}]
 <ul>
-    [{foreach from=$cat->getSubpages() item=subpage }]
+    [{foreach from=$oCont->getSubpages() item=subpage }]
         <li>
             <a href="[{$subpage->getLink()}]">[{$subpage->oxcontents__oxtitle->value}]</a>
             [{if $subpage->hasSubpages() && $iCurrentNavigationLevel < $iTotalNavigationLevels }]
@@ -11,3 +10,4 @@
         </li>
     [{/foreach}]
 </ul>
+[{/if}]

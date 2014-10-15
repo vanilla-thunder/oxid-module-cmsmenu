@@ -1,4 +1,5 @@
-<col width="40%">
-<col width="29%">
-<col width="29%">
-<col width="2%">
+<col width="3%">
+<col width="44%">
+<col width="25%">
+<col width="25%">
+<col width="3%">
