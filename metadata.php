@@ -34,15 +34,15 @@ $aModule = array(
         'vtcms_cfg'=>'vt-cmsstructure/core/vtcms_cfg.php'
     ),
     'templates' => array(
-        'cmssubpages.tpl' => 'vt-cmsstructure/out/tpl/cmssubpages.tpl'
+        'cmssubpages.tpl' => 'vt-cmsstructure/views/tpl/cmssubpages.tpl'
     ),
 	'blocks' => array(
-        array('template' => 'content_list.tpl',   'block' => 'admin_content_list_colgroup', 'file' => 'admin_content_list_colgroup.tpl'),
-        array('template' => 'content_list.tpl',   'block' => 'admin_content_list_filter',   'file' => 'admin_content_list_filter.tpl'),
-        array('template' => 'content_list.tpl',   'block' => 'admin_content_list_sorting',  'file' => 'admin_content_list_sorting.tpl'),
-        array('template' => 'content_list.tpl',   'block' => 'admin_content_list_item',     'file' => 'admin_content_list_item.tpl'),
-        array('template' => 'content_main.tpl',   'block' => 'admin_content_main_form',     'file' => 'admin_content_main_form.tpl'),
-        array('template' => 'layout/sidebar.tpl', 'block' => 'sidebar_categoriestree',      'file' => 'sidebar_categoriestree.tpl'),
+        array('template' => 'content_list.tpl',   'block' => 'admin_content_list_colgroup', 'file' => '/views/blocks/admin_content_list_colgroup.tpl'),
+        array('template' => 'content_list.tpl',   'block' => 'admin_content_list_filter',   'file' => '/views/blocks/admin_content_list_filter.tpl'),
+        array('template' => 'content_list.tpl',   'block' => 'admin_content_list_sorting',  'file' => '/views/blocks/admin_content_list_sorting.tpl'),
+        array('template' => 'content_list.tpl',   'block' => 'admin_content_list_item',     'file' => '/views/blocks/admin_content_list_item.tpl'),
+        array('template' => 'content_main.tpl',   'block' => 'admin_content_main_form',     'file' => '/views/blocks/admin_content_main_form.tpl'),
+        array('template' => 'layout/sidebar.tpl', 'block' => 'sidebar_categoriestree',      'file' => '/views/blocks/sidebar_categoriestree.tpl'),
         
     ),
     'events' => array(
