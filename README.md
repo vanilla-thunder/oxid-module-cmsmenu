@@ -13,7 +13,7 @@ upload "vt-cmsstructure" folder (where metadata.php is iside) into the shop/modu
 **if you are uploading files via ftp, switch to the binary transfer mode**  
 ### ssh shell + git client:
 <pre>$ cd modules
-$ git clone -b module git://github.com/vanilla-thunder/vt-cmsstructure.git</pre>
+$ git clone -b module https://github.com/vanilla-thunder/vt-cmsstructure.git</pre>
 
 ## USAGE
 read doc_en.html inside the module folder
