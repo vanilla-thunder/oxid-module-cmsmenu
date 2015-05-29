@@ -29,27 +29,29 @@ class content_vtcms extends content_vtcms_parent
 
     public function getRootContent()
     {
-        $cms = oxNew("oxcontent");
-        if( !$cms->load($this->getRootContentId()) )
-            return false;
-
-        return $cms;
-    }
-
-    public function getRootContentId()
-    {
         /** @var oxContent $act */
         $act = $this->getContent();
-        $sParent = $act->oxcontents__oxparentloadid->value;
+        // only first level of "upper menu" content pages should have this type, all other arer just subpages
+        $sParent = ($act->oxcontents__oxtype->value == 1) ? false : $act->oxcontents__oxparentloadid->value ;
 
         while($sParent)
         {
             $act = oxNew("oxcontent");
             $act->loadByIdent($sParent);
-            $sParent = $act->oxcontents__oxparentloadid->value;
+            $sParent = ($act->oxcontents__oxtype->value == 1) ? false : $act->oxcontents__oxparentloadid->value;
         }
 
-        return $act->getId();
+        return $act;
+    }
+
+    public function getRootContentId()
+    {
+        return $this->getRootContent()->getId();
+    }
+
+    public function getRootContentLoadId()
+    {
+        return $this->getRootContent()->getLoadId();
     }
 
 }

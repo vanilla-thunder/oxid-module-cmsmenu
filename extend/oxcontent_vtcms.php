@@ -5,7 +5,17 @@ class oxcontent_vtcms extends oxcontent_vtcms_parent
 
 	protected $_blHasSubpages = null;
 	protected $_aSubpages = array();
-	
+
+    public function getLink($iLang = null)
+    {
+        //echo $this->oxcontents__external->value;
+        if($this->oxcontents__external->value == 1)
+        {
+            return oxRegistry::get("oxUtilsView")->parseThroughSmarty($this->oxcontents__oxcontent->value, "cmsmenu_".$this->getId());
+        }
+        return parent::getLink($iLang);
+    }
+
 	public function hasSubpages()
 	{
 		if($this->_blHasSubpages === null) {
