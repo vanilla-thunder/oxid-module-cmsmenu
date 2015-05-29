@@ -16,7 +16,7 @@
      */
      
 $sMetadataVersion = '1.1';
-$v = 'https://raw.githubusercontent.com/vanilla-thunder/vt-cmsstructure/master/copy_this/modules/vt-cmsstructure/version.jpg';
+$v = 'https://raw.githubusercontent.com/vanilla-thunder/vt-cmsstructure/master/vt-cmsstructure/version.jpg';
 $aModule = array(
 	'id' => 'vt-cmsstructure',
 	'title' => '<strong style="color:#c700bb;border: 1px solid #c700bb;padding: 0 2px;background:white;">VT</strong> CMS Structure',
