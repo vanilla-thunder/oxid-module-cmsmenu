@@ -18,24 +18,24 @@ class vtcms_cfg extends oxConfig
         
         $sQuery = "ALTER TABLE oxcontents ADD OXPARENTLOADID CHAR( 32 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '', ADD OXSORT INT( 11 ) NOT NULL DEFAULT '9999'";
 
-        $oDb = oxDb::getDb();
-        $oRs = $oDb->metaColumnNames( "oxcontents" );
-        
+        $oDb = oxDb::getDb(FETCH_MODE_ASSOC);
+        $aColumns = $oDb->getRow("SELECT * FROM oxcontents LIMIT 1");
+
         $update = false;
-        
-        if ( !array_key_exists( "oxparentloadid", $oRs ) && !array_key_exists( "OXPARENTLOADID", $oRs ) )
+
+        if ( !array_key_exists( "oxparentloadid", $aColumns ) && !array_key_exists( "OXPARENTLOADID", $aColumns ) )
         {
             $oDb->execute( "ALTER TABLE oxcontents ADD OXPARENTLOADID CHAR( 32 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '' COMMENT 'vt-cmsstructure - parent cms page ident'" );
             $update = true;
         }
 
-        if ( !array_key_exists( "oxsort", $oRs ) && !array_key_exists( "OXSORT", $oRs ) )
+        if ( !array_key_exists( "oxsort", $aColumns ) && !array_key_exists( "OXSORT", $aColumns ) )
         {
             $oDb->execute( "ALTER TABLE oxcontents ADD OXSORT INT( 11 ) NOT NULL DEFAULT '9999' COMMENT 'vt-cmsstructure - sorting order'" );
             $update = true;
         }
 
-        if ( !array_key_exists( "external", $oRs ) && !array_key_exists( "EXTERNAL", $oRs ) )
+        if ( !array_key_exists( "external", $aColumns ) && !array_key_exists( "EXTERNAL", $aColumns ) )
         {
             $oDb->execute( "ALTER TABLE oxcontents ADD EXTERNAL INT( 1 ) NOT NULL DEFAULT '0' COMMENT 'vt-cmsstructure - external cms'" );
             $update = true;
@@ -112,7 +112,6 @@ class vtcms_cfg extends oxConfig
             $cms->assign($placeholder_contact);
             $cms->save();
         }
-
     }
 
 }
