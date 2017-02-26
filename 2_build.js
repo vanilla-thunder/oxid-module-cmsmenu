@@ -55,7 +55,7 @@ process.on('exit', function (code) {
     console.log("     replacing complete");
     // copy module to master
     shell("cp -rf _module _master/copy_this/modules/vt/"+p.name);
-    shell("rm -rf _master/copy_this/modules/vt/vt"+p.name+"/.git");
+    shell("rm -rf _master/copy_this/modules/vt/"+p.name+"/.git");
     shell("cp _module/README.md _master/README.md");
     console.log("");
     console.log("     build complete! made my day!");

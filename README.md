@@ -11,7 +11,17 @@
 ## INSTALLATION
 upload contents of "copy_this" folder into your shop root directory.
   
-
+## TEMPLATE CHANGES
+### FLOW : application/views/flow/tpl/widget/header/categorylist.tpl
+````php
+33|  [{foreach from=$ocat->getContentCats() item="oTopCont" name="MoreTopCms"}]
+34|    [{block name="cmsmenu_dropdown"}] <!-- insert block opening tag before <li> -->
+35|      <li>
+36|        <a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a>
+37|      </li>
+38|    [{/block}]<!-- insert block closing tag after </li> -->
+39|  [{/foreach}]
+````
 ## USAGE
 read doc_en.html inside the module folder
 

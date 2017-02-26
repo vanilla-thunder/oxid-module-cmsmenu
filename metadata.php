@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ___MODULE___
+ * [vt] ___NAME___ for OXID eShop 4.9+
  * Copyright (C) ___YEAR___  ___COMPANY___
  * info:  ___EMAIL___
  *
