@@ -1,0 +1,24 @@
+{
+  "name": "cmsstructure",
+  "version": "2.0.0",
+  "description": "assign parent-child relations to cms pages to create category-like tree structure",
+  "author": "Marat Bedoev",
+  "company": "Marat Bedoev",
+  "email": "m@marat.ws",
+  "url" : "https://github.com/vanilla-thunder/cmsstructure",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vanilla-thunder/cmsstructure.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vanilla-thunder/cmsstructure/issues"
+  },
+  "keywords": [
+    "oxid",
+    "checkout"
+  ],
+  "dependencies": {
+    "replace": "*"
+  }
+}
