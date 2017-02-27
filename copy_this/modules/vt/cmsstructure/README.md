@@ -1,5 +1,5 @@
 # vt CMS Structure for OXID eShop 4.9+
-## actual version 2.0 from 2017-02-26
+## current version: 2.0.1 2017-2-27
 * no editing of admin templates needed. 
 * provides the cms pages a simple category-like structure with some main and subpages 
 ![simple category-like structure](https://raw.github.com/vanilla-thunder/vt-cmsstructure/screenshots/screenshot1.jpg)
