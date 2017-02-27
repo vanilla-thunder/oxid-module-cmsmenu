@@ -1,6 +1,6 @@
 {
   "name": "cmsstructure",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "assign parent-child relations to cms pages to create category-like tree structure",
   "author": "Marat Bedoev",
   "company": "Marat Bedoev",
