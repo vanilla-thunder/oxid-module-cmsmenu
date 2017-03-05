@@ -1,5 +1,5 @@
 # vt CMS Structure for OXID eShop 4.9+
-## current version: 2.0.1 2017-2-27
+## current version: ___VERSION___
 * no editing of admin templates needed. 
 * provides the cms pages a simple category-like structure with some main and subpages 
 ![simple category-like structure](https://raw.github.com/vanilla-thunder/vt-cmsstructure/screenshots/screenshot1.jpg)
@@ -11,8 +11,8 @@
 ## INSTALLATION
 upload contents of "copy_this" folder into your shop root directory.
   
-## TEMPLATE CHANGES
-### FLOW : application/views/flow/tpl/widget/header/categorylist.tpl
+## TEMPLATE CHANGES : tpl/widget/header/categorylist.tpl
+### Flow
 ````php
 33|  [{foreach from=$ocat->getContentCats() item="oTopCont" name="MoreTopCms"}]
 34|    [{block name="cmsmenu_dropdown"}] <!-- insert block opening tag before <li> -->
@@ -21,6 +21,26 @@ upload contents of "copy_this" folder into your shop root directory.
 37|      </li>
 38|    [{/block}]<!-- insert block closing tag after </li> -->
 39|  [{/foreach}]
+````
+### Glow
+ ````php
+48|  [{foreach from=$ocat->getContentCats() item="oTopCont" name="MoreTopCms"}]
+49|    [{block name="cmsmenu_dropdown"}] <!-- insert block opening tag before <li> -->
+50|      <li [{if $cl == 'content' && $cms == $oTopCont->getId()}]class="active"[{/if}]>
+51|        <a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a>
+52|      </li>
+53|    [{/block}]<!-- insert block closing tag after </li> -->
+54|  [{/foreach}]
+````
+### eComTheme
+ ````php
+128|  [{if $iCatCnt <= $oView->getTopNavigationCatCnt()}]
+129|    [{block name="cmsmenu_dropdown"}] <!-- insert block opening tag before <li> -->
+130|      <li>
+131|        <a href="[{$oTopCont->getLink()}]">[{$oTopCont->oxcontents__oxtitle->value}]</a>
+132|      </li>
+133|    [{/block}]<!-- insert block closing tag after </li> -->
+134|  [{else}]
 ````
 
 ##LICENSE AGREEMEN
