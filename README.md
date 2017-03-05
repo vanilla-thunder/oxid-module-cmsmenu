@@ -22,9 +22,6 @@ upload contents of "copy_this" folder into your shop root directory.
 38|    [{/block}]<!-- insert block closing tag after </li> -->
 39|  [{/foreach}]
 ````
-## USAGE
-read doc_en.html inside the module folder
-
 
 ##LICENSE AGREEMEN
 Copyright (C) 2017  Marat Bedoev
