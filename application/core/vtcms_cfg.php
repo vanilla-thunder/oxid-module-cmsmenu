@@ -1,25 +1,28 @@
 <?php
 
 /**
- * [vt] cmsstructure for OXID eShop 4.9+
- * Copyright (C) 2017  Marat Bedoev
- * info:  m@marat.ws
+ *  cmsmenu
+ *  Copyright (C) 2018  Marat Bedoev
+ *  info:  schwarzarbyter@gmail.com
  *
- * This program is free software;
- * you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation;
- * either version 3 of the License, or (at your option) any later version.
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License along with this program; if not, see <http://www.gnu.org/licenses/>
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
  *
- * author: Marat Bedoev
- */
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ **/
 
 class vtcms_cfg extends oxConfig
 {
 
-   public static function setupCmsStructure()
+   public static function setupCmsmenu()
    {
 
       $sQuery = "ALTER TABLE oxcontents ADD OXPARENTLOADID CHAR( 32 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '', ADD OXSORT INT( 11 ) NOT NULL DEFAULT '9999'";
@@ -30,17 +33,17 @@ class vtcms_cfg extends oxConfig
       $update = false;
 
       if (!array_key_exists("oxparentloadid", $aColumns) && !array_key_exists("OXPARENTLOADID", $aColumns)) {
-         $oDb->execute("ALTER TABLE oxcontents ADD OXPARENTLOADID CHAR( 32 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '' COMMENT 'vt cmsstructure - parent cms page ident'");
+         $oDb->execute("ALTER TABLE oxcontents ADD OXPARENTLOADID CHAR( 32 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '' COMMENT 'vt cmsmenu - parent cms page ident'");
          $update = true;
       }
 
       if (!array_key_exists("oxsort", $aColumns) && !array_key_exists("OXSORT", $aColumns)) {
-         $oDb->execute("ALTER TABLE oxcontents ADD OXSORT INT( 11 ) NOT NULL DEFAULT '9999' COMMENT 'vt cmsstructure - sorting order'");
+         $oDb->execute("ALTER TABLE oxcontents ADD OXSORT INT( 11 ) NOT NULL DEFAULT '9999' COMMENT 'vt cmsmenu - sorting order'");
          $update = true;
       }
 
       if (!array_key_exists("external", $aColumns) && !array_key_exists("EXTERNAL", $aColumns)) {
-         $oDb->execute("ALTER TABLE oxcontents ADD EXTERNAL INT( 1 ) NOT NULL DEFAULT '0' COMMENT 'vt cmsstructure - external cms'");
+         $oDb->execute("ALTER TABLE oxcontents ADD EXTERNAL INT( 1 ) NOT NULL DEFAULT '0' COMMENT 'vt cmsmenu - external cms'");
          $update = true;
       }
 

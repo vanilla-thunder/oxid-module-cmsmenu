@@ -1,38 +1,41 @@
 <?php
 
 /**
- * [vt] cmsstructure for OXID eShop 4.9+
- * Copyright (C) 2017  Marat Bedoev
- * info:  m@marat.ws
+ *  cmsmenu
+ *  Copyright (C) 2018  Marat Bedoev
+ *  info:  schwarzarbyter@gmail.com
  *
- * This program is free software;
- * you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation;
- * either version 3 of the License, or (at your option) any later version.
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License along with this program; if not, see <http://www.gnu.org/licenses/>
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
  *
- * author: Marat Bedoev
- */
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ **/
 
 $sMetadataVersion = '1.1';
 $aModule = [
-   'id'          => 'cmsstructure',
+   'id'          => 'cmsmenu',
    'title'       => '[vt] CMS Structure',
-   'thumbnail'   => 'oxid-vt.jpg',
-   'description' => 'assign parent-child relations to cms pages to create category-like tree structure',
-   'version'     => '2.0.1 2017-2-27',
+   'description' => 'assign parent-child relations to cms pages to create category-like cms menu in main navigation',
+   'thumbnail'   => '',
+   'version'     => '2.1.0 ( 2018-10-23 )',
    'author'      => 'Marat Bedoev',
-   'email'       => 'm@marat.ws',
-   'url'         => 'https://github.com/vanilla-thunder/cmsstructure',
+   'email'       => 'schwarzarbyter@gmail.com',
+   'url'         => 'https://github.com/vanilla-thunder/oxid-module-cmsmenu',
    'extend'      => [
-      'content'       => 'vt/cmsstructure/extend/content_vtcms',
-      'oxcontent'     => 'vt/cmsstructure/extend/oxcontent_vtcms',
-      'oxcontentlist' => 'vt/cmsstructure/extend/oxcontentlist_vtcms'
+      'content'       => 'vt/cmsmenu/application/extend/content_vtcms',
+      'oxcontent'     => 'vt/cmsmenu/application/extend/oxcontent_vtcms',
+      'oxcontentlist' => 'vt/cmsmenu/application/extend/oxcontentlist_vtcms'
    ],
    'files'       => [
-      'vtcms_cfg' => 'vt/cmsstructure/application/core/vtcms_cfg.php'
+      'vtcms_cfg' => 'vt/cmsmenu/application/core/vtcms_cfg.php'
    ],
    'blocks'      => [
       // BE
@@ -63,7 +66,7 @@ $aModule = [
 
    ],
    'events'      => [
-      'onActivate' => 'vtcms_cfg::setupCmsStructure',
+      'onActivate' => 'vtcms_cfg::setupCmsmenu',
       //'onDeactivate' => 'vtcms_cfg::onDeactivate'
    ]
 ];
