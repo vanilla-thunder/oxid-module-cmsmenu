@@ -61,8 +61,9 @@ $aModule = [
          'file'     => '/application/views/blocks/admin/admin_content_main_form.tpl'
       ],
       // FE
-      ['template' => 'widget/header/categorylist.tpl', 'block' => 'cmsmenu_dropdown', 'file' => '/application/views/blocks/cmsmenu_dropdown.tpl'],
-      ['template' => 'layout/sidebar.tpl', 'block' => 'cmsmenu_sidebar', 'file' => '/application/views/blocks/cmsmenu_sidebar.tpl']
+       ['theme' => 'wave','template' => 'widget/header/categorylist.tpl', 'block' => 'cmsmenu_dropdown', 'file' => '/application/views/wave_dropdown.tpl'],
+       ['template' => 'widget/header/categorylist.tpl', 'block' => 'cmsmenu_dropdown', 'file' => '/application/views/blocks/cmsmenu_dropdown.tpl'],
+       ['template' => 'layout/sidebar.tpl', 'block' => 'cmsmenu_sidebar', 'file' => '/application/views/blocks/cmsmenu_sidebar.tpl']
 
    ],
    'events'      => [
