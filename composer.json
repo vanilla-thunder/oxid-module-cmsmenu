@@ -1,0 +1,32 @@
+{
+  "name": "vanilla-thunder/oxid-module-cmsmenu",
+  "version": "3.0.0-dev",
+  "description": "CMS Menu for OXID eShop V6.2",
+  "type": "oxideshop-module",
+  "homepage": "https://github.com/vanilla-thunder/oxid-module-cmsmenu",
+  "license": [
+    "GPL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Marat Bedoev",
+      "email": "hello@mb-dev.pro"
+    }
+  ],
+  "extra": {
+    "oxideshop": {
+      "target-directory": "vt/cmsmenu"
+    }
+  },
+  "require": {
+    "php": ">=7.2",
+    "oxid-esales/oxideshop-ce": "^v6.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "VanillaThunder\\Cmsmenu\\": "../../../source/modules/vt/cmsmenu"
+    }
+  }
+}
+
+
