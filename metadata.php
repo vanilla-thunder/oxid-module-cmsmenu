@@ -20,7 +20,7 @@ $aModule = [
     'title' => '[VT] CMS Menu',
     'description' => 'assign parent-child relations to cms pages to create category-like cms menu in main navigation',
     'thumbnail' => 'thumbnail.jpg',
-    'version' => '3.0.0 ( 2020-08-20 )',
+    'version' => '3.0.1 ( 2021-05-06 )',
     'author' => 'Marat Bedoev',
     'email' => openssl_decrypt("Az6pE7kPbtnTzjHlPhPCa4ktJLphZ/w9gKgo5vA//p4=", str_rot13("nrf-128-pop"), str_rot13("gvalzpr")),
     'url' => 'https://github.com/vanilla-thunder/oxid-module-cmsmenu',
