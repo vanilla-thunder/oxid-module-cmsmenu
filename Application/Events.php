@@ -15,23 +15,26 @@
 
 namespace VanillaThunder\Cmsmenu\Application;
 
+use OxidEsales\Eshop\Core\DatabaseProvider;
+
 class Events
 {
     private static $update = false;
     private static function addTableFields(\OxidEsales\Eshop\Core\DbMetaDataHandler $oDbMetaDataHandler)
     {
+        $Database = DatabaseProvider::getDb();
         if (!$oDbMetaDataHandler->fieldExists("oxparentloadid", "oxcontents")) {
-            $oDbMetaDataHandler->executeSql("ALTER TABLE oxcontents ADD OXPARENTLOADID CHAR( 32 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '' COMMENT 'vt-cmsmenu - parent cms page ident'");
+            $Database->execute("ALTER TABLE oxcontents ADD OXPARENTLOADID CHAR( 32 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '' COMMENT 'vt-cmsmenu - parent cms page ident'");
             self::$update = true;
         }
 
         if (!$oDbMetaDataHandler->fieldExists("oxsort", "oxcontents")) {
-            $oDbMetaDataHandler->executeSql("ALTER TABLE oxcontents ADD OXSORT INT( 11 ) NOT NULL DEFAULT '9999' COMMENT 'vt-cmsmenu - sorting order'");
+            $Database->execute("ALTER TABLE oxcontents ADD OXSORT INT( 11 ) NOT NULL DEFAULT '9999' COMMENT 'vt-cmsmenu - sorting order'");
             self::$update = true;
         }
 
         if (!$oDbMetaDataHandler->fieldExists("external", "oxcontents")) {
-            $oDbMetaDataHandler->executeSql("ALTER TABLE oxcontents ADD EXTERNAL INT( 1 ) NOT NULL DEFAULT '0' COMMENT 'vt-cmsmenu - external cms'");
+            $Database->execute("ALTER TABLE oxcontents ADD EXTERNAL INT( 1 ) NOT NULL DEFAULT '0' COMMENT 'vt-cmsmenu - external cms'");
             self::$update = true;
         }
     }
